@@ -31,7 +31,7 @@ export const Login = () => {
       <StyledLogin>
         <div className="container">
           <div className="row">
-            <div className="card-container">
+            <div className={`card-container ${input === 0 ? "" : "mt"}`}>
               <div className="card-shadow">
                 <div className="card-body">
                   <div className="logo">

@@ -6,6 +6,9 @@ export const StyledLogin = styled.div`
   background-color: ${THEME.color.bgWarning};
   min-height: 100vh;
   .row {
+    .mt {
+      margin-top: 3rem;
+    }
     .card-container {
       max-width: 100%;
       margin: 0 auto;
@@ -78,13 +81,20 @@ export const StyledLogin = styled.div`
             margin-top: 39px;
             margin-bottom: 7px;
             color: ${THEME.color.textPrimary};
+            font-size: 23px;
+            ${media.up("md")} {
+              font-size: 32px;
+            }
           }
           .desc {
             text-align: center;
             margin-bottom: 39px;
             font-weight: 500;
-            font-size: 19px;
+            font-size: 17px;
             color: ${THEME.color.textSecondary};
+            ${media.up("md")} {
+              font-size: 19px;
+            }
           }
           /* Login Form */
 
@@ -143,6 +153,7 @@ export const StyledLogin = styled.div`
                 font-size: 13px;
                 font-weight: 600;
                 color: rgb(31, 33, 40);
+                cursor: pointer;
               }
             }
           }

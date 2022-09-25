@@ -75,15 +75,82 @@ export const StyledSignup = styled.div`
             text-align: center;
             margin-top: 39px;
             margin-bottom: 7px;
+            font-size: 23px;
             color: ${THEME.color.textPrimary};
+            ${media.up("md")} {
+              font-size: 32px;
+            }
           }
           .desc {
             text-align: center;
             margin-bottom: 39px;
             font-weight: 500;
-            font-size: 19px;
+            font-size: 17px;
             color: ${THEME.color.textSecondary};
+            ${media.up("md")} {
+              font-size: 19px;
+            }
           }
+          /* Sign Up Form */
+          form {
+            .form-group {
+              position: relative;
+              margin-top: 19px;
+              transition: all 0.2s ease-in-out;
+              .form-control {
+                width: 100%;
+                border: none;
+                outline: none;
+                box-shadow: inset 0 1px 2px rgb(0 0 0 / 8%);
+                padding: 13px;
+                height: 47px;
+                border-radius: 13px;
+                background-color: ${THEME.color.inputBg};
+                font-size: 13px;
+                transition: all 0.2s ease-in-out;
+                font-weight: 600;
+
+                &:focus {
+                  box-shadow: inset 0 1px 2px rgb(0 0 0 / 8%),
+                    0 0 0 0.25rem rgb(108 93 211 / 25%);
+                  transition: all 0.2s ease-in-out;
+                }
+              }
+
+              label {
+                transition: all 0.2s ease-in-out;
+                position: absolute;
+                top: 0;
+                left: 0;
+                padding: 13px;
+                font-size: 13px;
+                font-weight: 500;
+                color: #6c757d;
+              }
+              input:focus ~ label,
+              input:valid ~ label {
+                top: -13px;
+                margin-bottom: 6px;
+                font-size: 11px;
+                transition: all 0.2s ease-in-out;
+              }
+            }
+            .form-btn {
+              margin-top: 19px;
+              button {
+                padding: 13px;
+                border-radius: 13px;
+                border: none;
+                outline: none;
+                background-color: ${THEME.color.bgBlue};
+                width: 100%;
+                font-size: 13px;
+                font-weight: 600;
+                color: ${THEME.color.bgLight};
+              }
+            }
+          }
+          /* Sign Up Form */
         }
       }
     }

@@ -38,6 +38,51 @@ export const Signup = () => {
                   </div>
                   <h1 className="heading">Create Account,</h1>
                   <h4 className="desc">Sign up to get started!</h4>
+                  <form action="">
+                    <div className="form-group">
+                      <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        className="form-control"
+                        required
+                      />
+                      <label htmlFor="email">Your email</label>
+                    </div>
+                    <div className="form-group">
+                      <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        className="form-control"
+                        required
+                      />
+                      <label htmlFor="name">Your name</label>
+                    </div>
+                    <div className="form-group">
+                      <input
+                        type="text"
+                        id="surname"
+                        name="surname"
+                        className="form-control"
+                        required
+                      />
+                      <label htmlFor="surname">Your surname</label>
+                    </div>
+                    <div className="form-group">
+                      <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        className="form-control"
+                        required
+                      />
+                      <label htmlFor="password">Password</label>
+                    </div>
+                    <div className="form-btn">
+                      <button type="submit">Sign Up</button>
+                    </div>
+                  </form>
                   <Auth />
                 </div>
               </div>
