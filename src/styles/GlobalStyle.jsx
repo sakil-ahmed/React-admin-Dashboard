@@ -1,4 +1,5 @@
 import { createGlobalStyle } from "styled-components";
+import { THEME } from "./../common/Themes";
 
 export const GlobalStyle = createGlobalStyle`
 
@@ -35,8 +36,22 @@ p, h1, h2, h3, h4, h5, h6 {
   overflow-wrap: break-word;
 }
 
+a{
+  text-decoration: none;
+  color: ${THEME.color.btnBg};
+}
 #root, #__next {
   isolation: isolate;
 }
 
+/* Custom Styles */
+.container{
+  max-width: 1280px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+.transition{
+  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
 `;
