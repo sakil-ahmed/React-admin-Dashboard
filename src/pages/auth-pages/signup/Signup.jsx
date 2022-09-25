@@ -3,7 +3,7 @@ import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
 import { StyledSignup } from "./StyledSignup";
 import logo from "../../../../public/brand.svg";
-import { Auth } from "../../../components/auth/auth";
+import { Auth } from "../../../components/auth/Auth";
 
 export const Signup = () => {
   return (
