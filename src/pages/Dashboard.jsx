@@ -1,5 +1,6 @@
 import React from "react";
 import { Helmet } from "react-helmet";
+import { Link } from "react-router-dom";
 import { StyledDashboard } from "./../styles/StyledDashboard";
 
 export const Dashboard = () => {
@@ -10,6 +11,8 @@ export const Dashboard = () => {
       </Helmet>
       <StyledDashboard>
         <h1>Dashboard</h1>
+        <Link to="/auth-pages/login">login</Link>
+        <Link to="/auth-pages/signup">signup</Link>
       </StyledDashboard>
     </>
   );
