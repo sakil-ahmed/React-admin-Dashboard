@@ -3,7 +3,7 @@ import { Helmet } from "react-helmet";
 import { StyledLogin } from "./StyledLogin";
 import logo from "../../../../public/brand.svg";
 import { Link } from "react-router-dom";
-import { Auth } from "../../../components/auth/auth";
+import { Auth } from "../../../components/auth/Auth";
 
 export const Login = () => {
   const [input, setInput] = useState(0);
