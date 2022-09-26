@@ -13,6 +13,7 @@ export const Dashboard = () => {
         <h1>Dashboard</h1>
         <Link to="/auth-pages/login">login</Link>
         <Link to="/auth-pages/signup">signup</Link>
+        <Link to="/auth-pages/404">404</Link>
       </StyledDashboard>
     </>
   );
