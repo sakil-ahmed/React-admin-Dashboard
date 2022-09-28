@@ -96,6 +96,51 @@ export const StyledLogin = styled.div`
               font-size: 19px;
             }
           }
+
+          /* Alart */
+
+          .alart-user-info {
+            color: #41387f;
+            background-color: #e2dff6;
+            border: 1px solid #d3cef2;
+            border-radius: 13px;
+            display: flex;
+            align-items: center;
+            padding: 13px 39px 13px 13px;
+            position: relative;
+
+            .alert-icon {
+              margin-right: 13px;
+            }
+            .alert-text {
+              p {
+                font-size: 13px;
+                line-height: 19px;
+                strong {
+                  font-weight: 700;
+                }
+              }
+            }
+            .alart-btn {
+              position: absolute;
+              top: 0;
+              right: 0;
+              button {
+                border: none;
+                outline: none;
+                background: transparent;
+                padding: 10px;
+                opacity: 0.4;
+                transition: all 0.1s ease-in-out;
+                cursor: pointer;
+                &:hover {
+                  opacity: 0.6;
+                }
+              }
+            }
+          }
+          /* Alart */
+
           /* Login Form */
 
           form {
@@ -143,7 +188,7 @@ export const StyledLogin = styled.div`
             }
             .form-btn {
               margin-top: 19px;
-              button {
+              .button {
                 padding: 13px;
                 border-radius: 13px;
                 border: none;
@@ -154,6 +199,9 @@ export const StyledLogin = styled.div`
                 font-weight: 600;
                 color: rgb(31, 33, 40);
                 cursor: pointer;
+              }
+              .center {
+                text-align: center;
               }
             }
           }

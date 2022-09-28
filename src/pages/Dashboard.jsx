@@ -1,9 +1,21 @@
-import React from "react";
+import axios from "axios";
+import React, { useEffect } from "react";
 import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
 import { StyledDashboard } from "./../styles/StyledDashboard";
 
 export const Dashboard = () => {
+  const fatchUser = async () => {
+    const res = await axios.get("https://api.github.com/users").catch((err) => {
+      console.log("Err", err);
+    });
+
+    console.log(res.data);
+  };
+  useEffect(() => {
+    fatchUser();
+  }, []);
+
   return (
     <>
       <Helmet>

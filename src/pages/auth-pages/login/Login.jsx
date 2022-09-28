@@ -1,9 +1,13 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { Helmet } from "react-helmet";
 import { StyledLogin } from "./StyledLogin";
 import logo from "../../../../public/brand.svg";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { Auth } from "../../../components/auth/Auth";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { MdLockOutline } from "react-icons/md";
+import { MdOutlineClose } from "react-icons/md";
 
 export const Login = () => {
   const [input, setInput] = useState(0);
@@ -11,17 +15,54 @@ export const Login = () => {
     name: "",
     password: "",
   });
+  // user
+  const user = {
+    name: "sakil",
+    password: "1234",
+  };
+  // user
   const form = useRef();
+
   const handleChange = (e) => {
     setLogin({ ...login, [e.target.name]: e.target.value });
   };
+
   const displayInput = () => {
-    setInput(1);
+    setTimeout(() => {
+      setInput(1);
+    }, [1000]);
   };
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(login);
     form.current.reset();
+
+    if (JSON.stringify(user) == JSON.stringify(login)) {
+      toast.success("Login Successfull", {
+        position: "top-center",
+        autoClose: 3000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    } else {
+      toast.error("Login failed", {
+        position: "top-center",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    }
+  };
+  // hide Alart
+  const alart = useRef();
+  const hideAlart = () => {
+    alart.current.style.display = "none";
   };
   return (
     <>
@@ -55,6 +96,28 @@ export const Login = () => {
                   </div>
                   <h1 className="heading">Welcome,</h1>
                   <h4 className="desc">Sign in to continue!</h4>
+                  {/* alart */}
+                  <div className="alart-user-info" ref={alart}>
+                    <div className="alert-icon">
+                      <MdLockOutline size="26px" />
+                    </div>
+                    <div className="alert-text">
+                      <p className="">
+                        <strong>Username: </strong>
+                        sakil
+                      </p>
+                      <p className="">
+                        <strong>Password: </strong>
+                        1234
+                      </p>
+                    </div>
+                    <div className="alart-btn">
+                      <button type="button" onClick={hideAlart}>
+                        <MdOutlineClose size="22px" />
+                      </button>
+                    </div>
+                  </div>
+                  {/* alart */}
                   {/* Login Form */}
 
                   <form ref={form} action="" onSubmit={handleSubmit}>
@@ -90,13 +153,15 @@ export const Login = () => {
                       </div>
                     )}
                     <div className="form-btn">
-                      <button
-                        type={input === 0 ? "" : "submit"}
-                        className=""
-                        onClick={displayInput}
-                      >
-                        {input === 0 ? "Continue" : "Login"}
-                      </button>
+                      {input === 0 ? (
+                        <div className="button center" onClick={displayInput}>
+                          Continue
+                        </div>
+                      ) : (
+                        <button type="submit" className="button">
+                          Login
+                        </button>
+                      )}
                     </div>
                   </form>
                   {/* Login Form */}
@@ -111,6 +176,7 @@ export const Login = () => {
           </div>
         </div>
       </StyledLogin>
+      <ToastContainer />
     </>
   );
 };

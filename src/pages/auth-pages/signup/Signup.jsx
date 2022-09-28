@@ -1,9 +1,11 @@
 import React, { useRef, useState } from "react";
 import { Helmet } from "react-helmet";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { StyledSignup } from "./StyledSignup";
 import logo from "../../../../public/brand.svg";
 import { Auth } from "../../../components/auth/Auth";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export const Signup = () => {
   const [createUser, setCreateUser] = useState({
@@ -17,10 +19,40 @@ export const Signup = () => {
     setCreateUser({ ...createUser, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  // //////////////////////////////////
+
+  const PostData = async (e) => {
     e.preventDefault();
     form.current.reset();
     console.log(createUser);
+    toast.success("Sign Up Successfull", {
+      position: "top-center",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+    <Navigate to="/" />;
+
+    const { name, email, surname, password } = createUser;
+
+    const res = await fetch(
+      "https://create-user-6b27c-default-rtdb.firebaseio.com/createuser.json",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name,
+          surname,
+          email,
+          password,
+        }),
+      }
+    );
   };
   return (
     <>
@@ -54,7 +86,7 @@ export const Signup = () => {
                   </div>
                   <h1 className="heading">Create Account,</h1>
                   <h4 className="desc">Sign up to get started!</h4>
-                  <form ref={form} action="" onSubmit={handleSubmit}>
+                  <form ref={form} action="" onSubmit={PostData}>
                     <div className="form-group">
                       <input
                         type="email"
@@ -114,6 +146,7 @@ export const Signup = () => {
           </div>
         </div>
       </StyledSignup>
+      <ToastContainer />
     </>
   );
 };
