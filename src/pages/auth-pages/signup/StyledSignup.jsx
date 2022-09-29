@@ -4,6 +4,7 @@ import { media } from "./../../../common/Media";
 
 export const StyledSignup = styled.div`
   background-color: ${THEME.color.bgBlue};
+  min-height: 100vh;
   .row {
     .card-container {
       max-width: 100%;

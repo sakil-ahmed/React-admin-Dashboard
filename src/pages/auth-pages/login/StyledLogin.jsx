@@ -108,7 +108,7 @@ export const StyledLogin = styled.div`
             align-items: center;
             padding: 13px 39px 13px 13px;
             position: relative;
-
+            margin-bottom: 13px;
             .alert-icon {
               margin-right: 13px;
             }
@@ -140,6 +140,12 @@ export const StyledLogin = styled.div`
             }
           }
           /* Alart */
+          .user-name {
+            text-align: center;
+            font-size: 19px;
+            font-weight: 700;
+            margin-bottom: 13px;
+          }
 
           /* Login Form */
 

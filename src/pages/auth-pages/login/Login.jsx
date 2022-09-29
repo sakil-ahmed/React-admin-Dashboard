@@ -1,8 +1,8 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useState } from "react";
 import { Helmet } from "react-helmet";
 import { StyledLogin } from "./StyledLogin";
 import logo from "../../../../public/brand.svg";
-import { Link, Navigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Auth } from "../../../components/auth/Auth";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -43,7 +43,7 @@ export const Login = () => {
         autoClose: 3000,
         hideProgressBar: false,
         closeOnClick: true,
-        pauseOnHover: true,
+        pauseOnHover: false,
         draggable: true,
         progress: undefined,
       });
@@ -53,7 +53,7 @@ export const Login = () => {
         autoClose: 3000,
         hideProgressBar: false,
         closeOnClick: true,
-        pauseOnHover: true,
+        pauseOnHover: false,
         draggable: true,
         progress: undefined,
       });
@@ -75,11 +75,13 @@ export const Login = () => {
             <div className={`card-container ${input === 0 ? "" : "mt"}`}>
               <div className="card-shadow">
                 <div className="card-body">
+                  {/* logo */}
                   <div className="logo">
                     <Link to="/">
                       <img src={logo} alt="Facit Logo" />
                     </Link>
                   </div>
+                  {/* Button */}
                   <div className="auth-button">
                     <div className="btn-col">
                       <Link to="/auth-pages/login">
@@ -94,8 +96,11 @@ export const Login = () => {
                       </Link>
                     </div>
                   </div>
+                  {/* Button */}
+                  {/* descptrion */}
                   <h1 className="heading">Welcome,</h1>
                   <h4 className="desc">Sign in to continue!</h4>
+                  {/* descptrion */}
                   {/* alart */}
                   <div className="alart-user-info" ref={alart}>
                     <div className="alert-icon">
@@ -118,6 +123,14 @@ export const Login = () => {
                     </div>
                   </div>
                   {/* alart */}
+                  {/* User Name */}
+                  {input === 0 ? (
+                    ""
+                  ) : (
+                    <h4 className="user-name">Hi,{login.name}.</h4>
+                  )}
+                  {/* User Name */}
+
                   {/* Login Form */}
 
                   <form ref={form} action="" onSubmit={handleSubmit}>

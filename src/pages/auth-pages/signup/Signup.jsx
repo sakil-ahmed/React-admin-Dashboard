@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 import { Helmet } from "react-helmet";
-import { Link, Navigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { StyledSignup } from "./StyledSignup";
 import logo from "../../../../public/brand.svg";
 import { Auth } from "../../../components/auth/Auth";
@@ -30,12 +30,10 @@ export const Signup = () => {
       autoClose: 3000,
       hideProgressBar: false,
       closeOnClick: true,
-      pauseOnHover: true,
+      pauseOnHover: false,
       draggable: true,
       progress: undefined,
     });
-    <Navigate to="/" />;
-
     const { name, email, surname, password } = createUser;
 
     const res = await fetch(
